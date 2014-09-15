@@ -20,7 +20,7 @@ public class Skill {
 
     public String name;
     public int numfollowers;
-    
+
     @Column(length=1000)
     public String description;
 }

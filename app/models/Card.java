@@ -30,4 +30,5 @@ public class Card {
     public Date date;
 
     public String skills;
+    public String type;
 }
