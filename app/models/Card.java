@@ -17,8 +17,11 @@ public class Card {
     public String creator;
     public String source;
 
+    public String title;
+    
     @Column(length=1000)
     public String snippet;
+
     public String imageUrl;
     public String url;
 
