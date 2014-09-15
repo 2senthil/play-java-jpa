@@ -2,6 +2,8 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import models.Bar;
+import models.Card;
+import models.Skill;
 import play.data.Form;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
@@ -37,6 +39,28 @@ public class Application extends Controller {
         Root<Bar> root = cq.from(Bar.class);
         CriteriaQuery<Bar> all = cq.select(root);
         TypedQuery<Bar> allQuery = JPA.em().createQuery(all);
+        JsonNode jsonNodes = toJson(allQuery.getResultList());
+        return ok(jsonNodes);
+    }
+
+    @Transactional(readOnly = true)
+    public static Result listSkills() {
+        CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
+        CriteriaQuery<Skill> cq = cb.createQuery(Skill.class);
+        Root<Skill> root = cq.from(Skill.class);
+        CriteriaQuery<Skill> all = cq.select(root);
+        TypedQuery<Skill> allQuery = JPA.em().createQuery(all);
+        JsonNode jsonNodes = toJson(allQuery.getResultList());
+        return ok(jsonNodes);
+    }
+
+    @Transactional(readOnly = true)
+    public static Result listCards() {
+        CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
+        CriteriaQuery<Card> cq = cb.createQuery(Card.class);
+        Root<Card> root = cq.from(Card.class);
+        CriteriaQuery<Card> all = cq.select(root);
+        TypedQuery<Card> allQuery = JPA.em().createQuery(all);
         JsonNode jsonNodes = toJson(allQuery.getResultList());
         return ok(jsonNodes);
     }

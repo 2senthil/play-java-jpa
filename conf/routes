@@ -5,6 +5,8 @@
 GET     /                           controllers.Application.index()
 GET     /bars                       controllers.Application.listBars()
 POST    /bars                       controllers.Application.addBar()
+GET     /skills                     controllers.Application.listSkills()
+GET     /cards                      controllers.Application.listCards()
 
 
 # Map static resources from the /public folder to the /assets URL path
