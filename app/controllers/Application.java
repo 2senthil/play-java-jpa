@@ -57,7 +57,7 @@ public class Application extends Controller {
     @Transactional(readOnly = true)
     public static Result getSkill(Long id) {
         TypedQuery<Skill> query = JPA.em().createQuery(
-                "SELECT c FROM skill c WHERE c.id = :id", Skill.class);
+                "SELECT c FROM Skill c WHERE c.id = :id", Skill.class);
         return ok(toJson(query.setParameter("id", id).getSingleResult()));
     }
 
