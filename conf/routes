@@ -8,6 +8,7 @@ POST    /bars                       controllers.Application.addBar()
 GET     /skills                     controllers.Application.listSkills()
 GET     /cards                      controllers.Application.listCards()
 GET     /skills/:id                 controllers.Application.getSkill(id: Long)
+GET     /cardsforskill/:skills      controllers.Application.getCardsForSkill(skills: Long)
 
 
 # Map static resources from the /public folder to the /assets URL path

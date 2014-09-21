@@ -62,6 +62,13 @@ public class Application extends Controller {
     }
 
     @Transactional(readOnly = true)
+    public static Result getCardsForSkill(Long skills) {
+        TypedQuery<Card> query = JPA.em().createQuery(
+                "SELECT c FROM Card c WHERE c.skills = \':skills\'", Card.class);
+        return ok(toJson(query.setParameter("skills", skills).getResultList()));
+    }
+
+    @Transactional(readOnly = true)
     public static Result listCards() {
         CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
         CriteriaQuery<Card> cq = cb.createQuery(Card.class);
