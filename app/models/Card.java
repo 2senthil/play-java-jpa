@@ -18,7 +18,7 @@ public class Card {
     public String source;
 
     public String title;
-    
+
     @Column(length=1000)
     public String snippet;
 
