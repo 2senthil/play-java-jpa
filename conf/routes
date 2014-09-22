@@ -7,6 +7,7 @@ GET     /bars                       controllers.Application.listBars()
 POST    /bars                       controllers.Application.addBar()
 GET     /skills                     controllers.Application.listSkills()
 GET     /cards                      controllers.Application.listCards()
+GET     /cards/:id                  controllers.Application.getCard(id: Long)
 GET     /skills/:id                 controllers.Application.getSkill(id: Long)
 GET     /cardsforskill/:skills      controllers.Application.getCardsForSkill(skills: String)
 
