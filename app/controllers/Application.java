@@ -76,16 +76,16 @@ public class Application extends Controller {
                     "SELECT c FROM Card c WHERE c.skills = :skills", Card.class);
         } else if (skills.equals("100")) {
             query = JPA.em().createQuery(
-                    "SELECT c FROM Card c WHERE c.skills LIKE '1' ORDER BY c.id limit 5", Card.class);
+                    "SELECT c FROM Card c WHERE c.skills = :skills ORDER BY c.id limit 5", Card.class);
         } else if (skills.equals("101")) {
             query = JPA.em().createQuery(
-                    "SELECT c FROM Card c WHERE c.skills LIKE '1' ORDER BY c.id desc limit 5", Card.class);
+                    "SELECT c FROM Card c WHERE c.skills = :skills ORDER BY c.id desc limit 5", Card.class);
         } else if (skills.equals("102")) {
             query = JPA.em().createQuery(
-                    "SELECT c FROM Card c WHERE c.skills LIKE '2' ORDER BY c.id limit 5", Card.class);
+                    "SELECT c FROM Card c WHERE c.skills = :skills ORDER BY c.id limit 5", Card.class);
         } else if (skills.equals("103")) {
             query = JPA.em().createQuery(
-                    "SELECT c FROM Card c WHERE c.skills LIKE '2' ORDER BY c.id desc limit 5", Card.class);
+                    "SELECT c FROM Card c WHERE c.skills = :skills ORDER BY c.id desc limit 5", Card.class);
         }
 
 
