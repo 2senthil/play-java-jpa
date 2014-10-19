@@ -70,15 +70,8 @@ public class Application extends Controller {
 
     @Transactional(readOnly = true)
     public static Result getCardsForSkill(String skills) {
-        TypedQuery<Card> query;
-        
-        if(skills.equals("-1")) {
-            query = JPA.em().createQuery(
-                    "SELECT c FROM Card c", Card.class);
-        } else {
-            query = JPA.em().createQuery(
+        TypedQuery<Card> query = JPA.em().createQuery(
                     "SELECT c FROM Card c WHERE c.skills = :skills", Card.class);
-        }
 
         return ok(toJson(query.setParameter("skills", skills).getResultList()));
     }
