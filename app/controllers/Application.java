@@ -3,6 +3,7 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.Bar;
 import models.Card;
+import models.Question;
 import models.Skill;
 import play.data.Form;
 import play.db.jpa.JPA;
@@ -74,6 +75,14 @@ public class Application extends Controller {
                     "SELECT c FROM Card c WHERE c.skills = :skills", Card.class);
 
         return ok(toJson(query.setParameter("skills", skills).getResultList()));
+    }
+
+    @Transactional(readOnly = true)
+    public static Result getQuestionsForSkill(Long skillId) {
+        TypedQuery<Question> query = JPA.em().createQuery(
+                "SELECT c FROM Question c WHERE c.skillId = :skillId", Question.class);
+
+        return ok(toJson(query.setParameter("skillId", skillId).getResultList()));
     }
 
     @Transactional(readOnly = true)
